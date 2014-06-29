@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "AHistory";
+    Layout = "~/Views/Shared/LayoutPage2.cshtml";
+    int d = 1;
+}
+
+<div id="templatemo_content_right">
+    <h1>History</h1>
+    <div class=" cm" style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">
+        @*<h2> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quantity &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Price </h2>
+  *@  <table>
+        <tr>
+            <td><h2>Serial#</h2></td>
+            <td><h2>UserId</h2></td>
+            <td><h2>Price</h2></td>
+            <td><h2>Quantity</h2></td>
+            <td><h2>Date</h2></td>
+            </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td><p>@d</p></td>
+      <td> <p> @x.Uid </p></td><td>@*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*@ <p> @x.Tprice </p></td><td> @*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*@ <p> @x.Quantity </p></td><td> @*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*@ <p>@x.Date</p> </td>
+    </tr>
+        d++;
+            }
+        </table>
+        
+        </div>
+    <div class="cleaner_with_width">&nbsp;</div>
+             <div class="cleaner_with_height">&nbsp;</div>
+         
+        </div> <!-- end of content right -->

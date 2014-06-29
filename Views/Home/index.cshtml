@@ -1,0 +1,52 @@
+﻿@model MvcApplication5.Models.Info
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/layout.cshtml";
+    var u = Session["correctpassword"];
+    
+}
+
+ 
+        <!-- end of content left -->
+        <div id="templatemo_content_right">
+             <h1>Login <span> </span></h1>
+          @using (Html.BeginForm("login","Home",FormMethod.Post))
+          {
+               @Html.AntiForgeryToken()
+                 @Html.ValidationSummary(true)
+           <h3> @Html.LabelFor(m => m.UserName )
+             
+               @Html.TextBoxFor(m => m.UserName, new {  style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;" })</h3>
+                @Html.ValidationMessageFor(m => m.UserName)
+              <h3> @Html.LabelFor(m => m.Password)
+            @Html.TextBoxFor(m => m.Password, new {type="password",style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})</h3>
+            @Html.ValidationMessageFor(m => m.Password)
+              
+                
+                <input type="submit" id="d1" value="login" STYLE="border:1px solid #B8860B;background-color: #B8860B;" />
+              @*<div class="buy_now_button"><a  onClick="javascript:$('#my').onSubmit()" href="#">Login</a></div>*@
+            <br><br><br>
+          }
+
+
+            @if(u!=null)
+            {
+                <h2> Please enter Coorect UserName and Password.</h2>
+            }
+            
+                    @Scripts.Render("~/bundles/jquery")
+           <script type="text/javascript">
+    window.onload = function () {
+        window.history.forward();
+    }
+    
+</script>
+             </div>
+
+
+     <!-- end of content -->
+   @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+} 
+
+

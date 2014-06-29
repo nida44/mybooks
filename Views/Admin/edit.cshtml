@@ -1,0 +1,89 @@
+﻿ @model MvcApplication5.Models.Book
+@{
+    ViewBag.Title = "edit";
+    Layout = "~/Views/Shared/LayoutPage2.cshtml";
+}
+
+ <!-- end of content left -->
+        <div id="templatemo_content_right">
+             <h1>SIGN <span> UP </span></h1>
+        
+        <form action="/Admin/UpdateBook" method="post" enctype="multipart/form-data" >
+          @Html.AntiForgeryToken()
+                 @Html.ValidationSummary(true)
+          <table align="left">
+		   <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Name )</h2>
+			</td> 
+			<td>
+				 @Html.TextBoxFor(m => m.Name, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;" })
+				@Html.ValidationMessageFor(m => m.Name)
+                <br/>
+			</td>
+		   </tr>
+                    
+         <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.SmallDes )</h2>
+			</td>
+			<td>
+				 @Html.TextBoxFor(m => m.SmallDes, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				<br/>
+			</td>
+		   </tr>
+                    
+         <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.FullDes)</h2>
+			</td>
+			<td>
+				 @Html.TextBoxFor(m => m.FullDes, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;" })
+				<br/>
+			</td>
+		   </tr>
+                    <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Quantity)</h2>
+			</td>
+			<td>
+				 @Html.TextBoxFor(m => m.Quantity, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				@Html.ValidationMessageFor(m => m.Quantity)
+                <br/>
+			</td>
+		   </tr>
+          <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Price)</h2>
+			</td>
+			<td>
+				 @Html.TextBoxFor(m => m.Price, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				@Html.ValidationMessageFor(m => m.Price)
+                <br/>
+			</td>
+		   </tr>
+               <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Author)</h2>
+			</td>
+			<td>
+				@Html.TextBoxFor(m => m.Author, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				@Html.ValidationMessageFor(m => m.Author)
+                <br/>
+			</td>
+		   </tr>
+              @Html.TextBoxFor(m => m.Id, new { type="hidden" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				
+                    <tr align="center">
+			<td colspan=2>
+             <input type="submit" id="d1" value="UpdateBook" STYLE="border:1px solid #B8860B;background-color: #B8860B;" />
+              
+
+			</td>
+		   </tr>
+               <input type="hidden" name="myid" id="myid">
+                    </table>
+        </form>
+	   @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+} 

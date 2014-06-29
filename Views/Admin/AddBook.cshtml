@@ -1,0 +1,133 @@
+﻿
+@model MvcApplication5.Models.Book
+@{
+    ViewBag.Title = "AddBook";
+    var qt=Session["checkme"];
+    Layout = "~/Views/Shared/LayoutPage2.cshtml";
+}
+
+   <!-- end of content left -->
+        <div id="templatemo_content_right">
+             <h1>Add Book<span> UP </span></h1>
+        
+        <form action="/Admin/SaveBook" method="post" enctype="multipart/form-data" >
+          @Html.AntiForgeryToken()
+                 @Html.ValidationSummary(true)
+          <table align="left">
+		   <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Name )</h2>
+			</td> 
+			<td>
+				 @Html.TextBoxFor(m => m.Name, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;" })
+				@Html.ValidationMessageFor(m => m.Name)
+                <br/>
+			</td>
+		   </tr>
+                    
+         <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.SmallDes )</h2>
+			</td>
+			<td>
+				 @Html.TextBoxFor(m => m.SmallDes, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				<br/>
+			</td>
+		   </tr>
+                    
+         <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.FullDes)</h2>
+			</td>
+			<td>
+				 @Html.TextBoxFor(m => m.FullDes, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;" })
+				<br/>
+			</td>
+		   </tr>
+                    <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Quantity)</h2>
+			</td>
+			<td>
+				 @Html.TextBoxFor(m => m.Quantity, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				@Html.ValidationMessageFor(m => m.Quantity)
+                <br/>
+			</td>
+		   </tr>
+          <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Price)</h2>
+			</td>
+			<td>
+				 @Html.TextBoxFor(m => m.Price, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				@Html.ValidationMessageFor(m => m.Price)
+                <br/>
+			</td>
+		   </tr>
+               <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Author)</h2>
+			</td>
+			<td>
+				@Html.TextBoxFor(m => m.Author, new { type="text" , style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				@Html.ValidationMessageFor(m => m.Author)
+                <br/>
+			</td>
+		   </tr>
+               <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Category)</h2>
+			</td>
+			<td>
+                Computer<input type="radio" name="Category" value="Computer" >English<input type="radio" name="Category" value="English" >Gardening<input type="radio" name="Category" value="Gardening"> Cooking<input type="radio" name="Category" value="Cooking" />Decore<input type="radio" name="Category" value="Decore">
+				 <br/>
+			</td>
+		   </tr>
+
+               <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.Images)</h2>
+			</td>
+			
+                   <td>
+                  @Html.TextBoxFor(m => m.Images, new { type="file" ,id="file", style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})
+				
+				 
+				
+			</td>
+                   <td>
+				<br/>
+			</td>
+
+		   </tr>
+               <tr>
+			<td>
+			<h2></h2>
+			</td>
+			<td>
+				<br/>
+			</td>
+		   </tr>
+		   
+                    <tr align="center">
+			<td colspan=2>
+             <input type="submit" id="d1" value="SaveBook" STYLE="border:1px solid #B8860B;background-color: #B8860B;" />
+              
+
+			</td>
+		   </tr>
+                    </table>
+        </form>
+            @if (qt != null)
+            {
+                <h2>This book is already present in store.</h2>
+            }
+            </div>
+                
+	   @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+} 
+            
+    
+
+

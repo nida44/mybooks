@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+    
+    
+        
+         <div id="templatemo_content_right">
+        	<div class="templatemo_product_box">
+            	<h1>@Model[0].Name <span>(by @Model[0].Author)</span></h1>
+   	      <img src=@Model[0].Images.Substring(1) alt="image" />
+                <div class="product_info">
+                	<p>@Model[0].SmallDes</p>
+                  <h3>$@Model[0].Price</h3>
+                    <div class="detail_button"><a href="/Book/BookDetail">Detail</a></div>
+                    <div class="buy_now_button"><a href="#">Buy Now</a></div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_width">&nbsp;</div>
+            
+            <div class="templatemo_product_box">
+            	<h1>@Model[1].Name <span>(by @Model[1].Author)</span></h1>
+       	    <img src=@Model[1].Images.Substring(1) alt="image" />
+                <div class="product_info">
+                	<p>@Model[1].SmallDes</p>
+                  <h3>$@Model[1].Price</h3>
+                     <div class="detail_button"><a href="/Book/BookDetail">Detail</a></div>
+                    <div class="buy_now_button"><a href="#">Buy Now</a></div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+            
+            <div class="templatemo_product_box">
+                <h1>@Model[2].Name <span>(by @Model[2].Author)</span></h1>
+   	      <img src=@Model[2].Images.Substring(1) alt="image" />
+                <div class="product_info">
+                	<p>@Model[2].SmallDes</p>
+                  <h3>$@Model[2].Price</h3>
+                     <div class="detail_button"><a href="/Book/BookDetail">Detail</a></div>
+                    <div class="buy_now_button"><a href="#">Buy Now</a></div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_width">&nbsp;</div>
+            
+            <div class="templatemo_product_box">
+            	<h1>@Model[3].Name <span>(by @Model[3].Author)</span></h1>
+            	<img src=@Model[3].Images.Substring(1) alt="image" />
+                <div class="product_info">
+                	<p>@Model[3].SmallDes</p>
+                  <h3>$@Model[3].Price</h3>
+                     <div class="detail_button"><a href="/Book/BookDetail">Detail</a></div>
+                    <div class="buy_now_button"><a href="#">Buy Now</a></div>
+                </div>
+                <div class="cleaner">&nbsp;</div>
+            </div>
+            
+            <div class="cleaner_with_height">&nbsp;</div>
+            
+            <a href="subpage.html"><img src="~/images/templatemo_ads.jpg" alt="ads" /></a>
+        </div> <!-- end of content right -->

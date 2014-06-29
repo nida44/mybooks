@@ -1,0 +1,142 @@
+﻿@model MvcApplication5.Models.Info
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/layout.cshtml";
+}
+   <!-- end of content left -->
+
+        <div id="templatemo_content_right">
+            <form method="post" action="/Home/Add">
+                @Html.AntiForgeryToken()
+                 @Html.ValidationSummary(true)
+             <h1>SIGN <span> UP </span></h1>
+          <table align="left">
+		   <tr>
+			<td>
+			<h2>	@Html.LabelFor(m => m.UserName )</h2>
+			</td> 
+			<td>
+				@Html.TextBoxFor(m => m.UserName, new {  style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;" })</h3>
+               @Html.ValidationMessageFor(m => m.UserName)
+                <br/>
+			</td>
+               <td>
+                
+                   <input type="button" id="b1" value="Check" STYLE="border:1px solid #B8860B;background-color: #B8860B;" />
+                   </td>
+            <td> 
+               
+                <div id="result">
+                    @Scripts.Render("~/bundles/jquery")
+                            <script>
+
+                                $(document).ready(function () {
+
+                                    $('#checking').hide();
+
+                                    $('#b1').click(function () {
+
+                                        var userName = $('#UName').val();
+
+                                        //alert('User Name ='+ userName);
+                                        $('#checking').show();
+                                        $.getJSON("/Home/CheckUserName?UName=" + userName, function (data) {
+                                            $('#checking').hide();
+                                            if (data) {
+                                                $('#result').text("User Name is available");
+
+                                            }
+                                            else {
+                                                $('#result').text("User Name is not available");
+                                            }
+                                        });
+
+                                    });
+
+                                });
+
+                            </script>
+                        </div>
+
+			
+			</td>
+		   </tr>
+                    
+         <tr>
+			<td>
+			<h2>	Full Name:</h2>
+			</td>
+			<td>
+				 <input type="text" name="FullName" STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;" >
+				
+                <br/>
+			</td>
+		   </tr>
+                    
+         <tr>
+			<td>
+			<h2>	Email:</h2>
+			</td>
+			<td>
+				 <input type="text" name="Email " STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">
+				
+                <br/>
+			</td>
+		   </tr>
+                    <tr>
+			<td>
+			<h2>	 @Html.LabelFor(m => m.Password)</h2>
+			</td>
+			<td>
+				  @Html.TextBoxFor(m => m.Password, new {type="password",style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;"})</h3>
+           @Html.ValidationMessageFor(m => m.Password)
+                <br/>
+			</td>
+		   </tr>
+          <tr>
+			<td>
+			<h2>	City:</h2>
+			</td>
+			<td>
+				 <input type="text" name="City" STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">
+				
+                <br/>
+			</td>
+		   </tr>
+		   <tr>
+			<td>
+			<h2>	State:</h2>
+			</td>
+			<td>
+			<input type="text" name="State" STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">
+			
+                <br/>
+			</td>
+		   </tr>
+                    <tr>
+			<td>
+			<h2>	Gender: </h2>
+			</td>
+			<td>
+				<input type="radio" name="Gender" value="male" >Male
+				<input type="radio" name="Gender" value="female">Female
+			
+				<br/>
+			</td>
+		   </tr>
+                    <tr align="center">
+			<td colspan=2>
+             <input type="submit" id="d1" value="Add" STYLE="border:1px solid #B8860B;background-color: #B8860B;" />
+			</td>
+                        
+		   </tr>
+                    </table>
+                </form>
+ @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+} 
+
+	
+            
+    
+

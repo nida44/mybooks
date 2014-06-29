@@ -1,0 +1,50 @@
+﻿@model MvcApplication5.Models.Info
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+ 
+        <!-- end of content left -->
+        <div id="templatemo_content_right">
+             <h1>Search <span> </span></h1>
+          <select id='bookselector', STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">
+              <option value=Gardening STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">Gardening</option>
+              <option value=English STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">English</option>
+              <option value=Urdu STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">Urdu</option>
+              <option value=Computer STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">Computer</option>
+              <option value=Cooking STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">Cooking</option>
+              <option value=Decore STYLE="border:1px solid #B8860B;background: #1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">Decore</option>
+          </select>
+            <div id="res">
+                </div>
+             </div>
+            @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+
+
+
+            $('#bookselector').change(function () {
+                alert($('#bookselector').val());
+
+                $.getJSON('/Book/getBook?Category=' + $('#bookselector').val(), function (data) {
+                    $.each(data, function (i, item) {
+                        $('#res').append('<div class="templatemo_product_box"><h1>' + item.Name + ' <span>(by ' + item.Author + ')</span></h1><img src=' + item.Images+".Substring(1)" + ' alt="image" /><div class="product_info"><p>' + item.SmallDes + '</p><h3>$' + item.Price + '</h3><div class="detail_button"><a href="/Book/BookDetail">Detail</a></div><div class="buy_now_button"><a href="#">Buy Now</a></div></div><div class="cleaner">&nbsp;</div></div><div class="cleaner_with_width">&nbsp;</div><div class="cleaner_with_height">&nbsp;</div>');
+                        
+                    });
+
+
+                });
+
+            });
+        });
+    </script>
+            
+           
+
+            
+     <!-- end of content -->
+
+

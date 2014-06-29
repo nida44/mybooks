@@ -1,0 +1,21 @@
+﻿
+@{
+    var z=Session["Total"];
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+
+<div id="templatemo_content_right">
+    <h1>Cart</h1>
+    <div class=" cm" style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;">
+        <h2> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quantity &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Price </h2>
+    @foreach (var x in Model)
+    {
+       <p> @x.Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @x.Quantity &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @x.Price</p> <div class="detail_button"><a  href="remove?Id=@x.Id">Remove</a></div>
+    }
+        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @z</h1>
+        </div>
+    <div class="cleaner_with_width">&nbsp;</div>
+             <div class="cleaner_with_height">&nbsp;</div>
+         <div class="buy_now_button"><a  href="thanks">Purchase</a></div>
+        </div> <!-- end of content right -->

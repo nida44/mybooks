@@ -1,0 +1,93 @@
+﻿@{
+    var x = Session["userName"];
+}    
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Book Store Template, Free CSS Template, CSS Website Layout</title>
+<meta name="keywords" content="Book Store Template, Free CSS Template, CSS Website Layout, CSS, HTML" />
+<meta name="description" content="Book Store Template, Free CSS Template, Download CSS Website" />
+<link href="~/Content/templatemo_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body >
+<!--  Free CSS Templates from www.templatemo.com -->
+<div id="templatemo_container">
+	<div id="templatemo_menu">
+    	<ul>
+            <li><a href="/User/UserProfile" class="current">Home</a></li>
+            <li><a href="/Home/Search">Search</a></li>
+            <li><a href="/User/Cart">Cart</a></li>
+            <li><a href="/User/UHistory">History</a></li> 
+                
+                     
+             
+            
+            
+    	</ul>
+    </div> <!-- end of menu -->
+     <div id="templatemo_header">
+    	<div id="templatemo_special_offers">
+        	<p>
+                <span>25%</span> discounts for
+        purchase over $80
+        	</p>
+			<a href="#" style="margin-left: 50px;">Read more...</a>
+        </div>
+        
+        
+        <div id="templatemo_new_books">
+        	<ul>
+                <li>The Shepherd</li>
+                <li>The main Ego</li>
+                <li>Man Chali</li>
+            </ul>
+            <a href="#" style="margin-left: 50px;">Read more...</a>
+        </div>
+    </div> <!-- end of header -->
+     <div id="templatemo_content">
+    	
+        <div id="templatemo_content_left">
+        	<div class="templatemo_content_left_section">
+            	<h1>Categories</h1>
+                <ul>
+                    <li><a href="/Book/mybook?Id=English">English Novel</a></li>
+                    <li><a href="/Book/mybook?Id=Urdu">Urdu Novel</a></li>
+                    <li><a href="/Book/mybook?Id=Computer">Computer Books</a></li>
+                    <li><a href="/Book/mybook?Id=Cooking">Cooking Books</a></li>
+                    <li><a href="/Book/mybook?Id=Gardening">Gardening Books</a></li>
+                    <li><a href="/Book/mybook?Id=Decore">home decore Book</a></li>
+                    
+            	</ul>
+            </div>
+
+            <div class="templatemo_content_left_section">
+            	<h1>@x</h1>
+                <ul>
+                    <li><a href="/Home/index">Log in</a></li>
+                    <li><a href="/User/Cart">Cart</a></li>
+                    <li><a href="/Home/logout">Logout</a></li>
+                    
+            	</ul>
+            </div>
+            
+            
+			
+            
+            
+        </div> <!-- end of content left -->
+        
+     @RenderBody()
+         @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+         <div class="cleaner_with_height">&nbsp;</div>
+    </div> <!-- end of content -->
+    
+   <div id="templatemo_footer">
+    
+	       This website is developed by BSEF11A031
+                <!-- end of footer -->
+<!--  Free CSS Template www.templatemo.com -->
+</div> <!-- end of container -->
+<div align=center>NIDA TARIQ</div></form></body>
+</html>

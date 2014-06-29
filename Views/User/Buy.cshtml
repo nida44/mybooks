@@ -1,0 +1,48 @@
+﻿  @model MvcApplication5.Models.Book
+@{
+    ViewBag.Title = "Buy";
+    var my=Session["noq"];
+    Layout = "~/Views/Shared/LayoutPage1.cshtml";
+}
+<div id="templatemo_content_right">
+    <form id="crudForm" action="buyit" method="POST">
+     
+               @Html.AntiForgeryToken()
+                 @Html.ValidationSummary(true)
+        	<div class="templatemo_product_box">
+                <h1> @Model.Name </h1>
+                <ul>
+	            
+                <li>Price : $@Model.Price</li>
+                
+            </ul>
+                <h3> @Html.LabelFor(m => m.Quantity)
+                    <input type="hidden" name="myid" id="myid">
+            	 <input type="text",id= b1, name="b1", style="border:1px solid #B8860B;background:#1c1c1b url(images/templatemo_bg.jpg) repeat-y; color: #FFFFFF;" /></h3>
+           <div class="cleaner">&nbsp;</div>
+                    <div class="buy_now_button"><a  onClick="BuyProduct(@Model.Id)" href="#">Add to Cart</a></div>
+                 @Scripts.Render("~/bundles/jquery")
+                            <script>
+
+                                function BuyProduct(invokeParamVal) {
+                                   
+                                        $('#myid').attr('name', invokeParamVal);
+                                        $('#myid').attr('value', invokeParamVal);
+                                        // submit the form.
+                                        $('#crudForm').submit();
+                                    }
+                               
+                               </script>
+                
+            </div>
+         @if (my != null)
+            {
+                <h2>please enter quantity</h2>
+            }
+     </form>
+
+
+            
+           
+            
+        </div> <!-- end of content right -->
